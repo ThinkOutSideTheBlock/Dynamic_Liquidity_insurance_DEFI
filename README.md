@@ -1,66 +1,107 @@
-## Foundry
+# Dynamic Liquidity Insurance
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A decentralized insurance protocol for smart contract liquidations with dynamic premium adjustment and capital adequacy monitoring.
 
-Foundry consists of:
+## Overview
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Dynamic Liquidity Insurance provides protection against liquidation risks in DeFi protocols through:
 
-## Documentation
+- **Dynamic Premium Adjustment**: Risk-based premium pricing that adapts to market conditions
+- **Capital Adequacy Monitoring**: Real-time monitoring of insurance pool capital reserves
+- **Multi-tranche Capital Structure**: Segregated capital layers with different risk/return profiles
+- **Integrated Liquidation Management**: Flash loan-enabled liquidation execution with yield optimization
+- **Advanced Risk Models**: GBM-based stochastic risk assessment and pricing
 
-https://book.getfoundry.sh/
+## Project Structure
 
-## Usage
+```
+src/
+├── core/                 # Core insurance protocol contracts
+├── libraries/            # Utility libraries and types
+├── modules/              # Capital adequacy and monitoring modules
+├── risk/                 # Risk modeling and assessment
+├── integrations/         # DeFi protocol integrations (Aave, Uniswap)
+├── security/             # Security-related contracts
+├── tokens/               # Share token contracts
+├── oracles/              # Price oracle implementations
+└── utils/                # Utility contracts
 
-### Build
-
-```shell
-$ forge build
+test/
+├── unit/                 # Unit tests for core functionality
+├── integration/          # Integration tests
+├── analysis/             # Analysis and simulation tests
+├── fixtures/             # Test fixtures and helpers
+└── mocks/                # Mock contracts for testing
 ```
 
-### Test
+## Getting Started
 
-```shell
-$ forge test
+### Prerequisites
+
+- [Foundry](https://book.getfoundry.sh/)
+- Solidity 0.8.20+
+
+### Installation
+
+```bash
+git clone https://github.com/ThinkOutSideTheBlock/Dynamic_Liquidity_insurance.git
+cd Dynamic_Liquidity_insurance
+forge install
 ```
 
-### Format
+### Building
 
-```shell
-$ forge fmt
+```bash
+forge build
+```
+
+### Running Tests
+
+```bash
+forge test
+```
+
+Run specific tests:
+```bash
+forge test --match-path "test/unit/InsurancePool.t.sol"
+```
+
+With verbosity:
+```bash
+forge test -vvv
 ```
 
 ### Gas Snapshots
 
-```shell
-$ forge snapshot
+```bash
+forge snapshot
 ```
 
-### Anvil
+## Key Components
 
-```shell
-$ anvil
-```
+### Insurance Pool
+Core contract managing premium collection, claims processing, and capital allocation across multiple tranches.
 
-### Deploy
+### Premium Adjustment Module
+Dynamically calculates and adjusts insurance premiums based on risk metrics and market conditions.
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+### Capital Adequacy Monitor
+Monitors reserve levels and triggers rebalancing when capital ratios fall below thresholds.
 
-### Cast
+### Risk Metrics
+GBM-based stochastic model for dynamic risk assessment and pricing optimization.
 
-```shell
-$ cast <subcommand>
-```
+### Liquidation Purchase
+Handles liquidation execution with integrated flash loan and DEX trading capabilities.
 
-### Help
+### Integrations
+- **Aave V3**: Yield generation and flash loan integration
+- **Uniswap V3**: Liquidation execution and price discovery
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## Security
+
+This is experimental software. Use at your own risk. Extensive testing and auditing is recommended before production deployment.
+
+## License
+
+MIT License

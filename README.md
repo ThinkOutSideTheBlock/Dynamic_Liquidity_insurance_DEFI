@@ -102,6 +102,11 @@ Handles liquidation execution with integrated flash loan and DEX trading capabil
 
 This is experimental software. Use at your own risk. Extensive testing and auditing is recommended before production deployment.
 
+## Citation
+If you use this software, please cite it as:
+
+Khoshakhlagh, Sajjad. (2025). Dynamic Liquidity Insurance: A Decentralized Protocol for Defi Liquidations (v1.0.0-alpha). Zenodo. https://doi.org/10.5281/zenodo.17593498
+
 ## License
 
 MIT License
